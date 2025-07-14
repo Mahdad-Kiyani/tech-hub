@@ -1,0 +1,195 @@
+
+# 🚀 DevOps Agent Dora
+
+## 📖 Overview
+
+Welcome to **DevOps Agent Dora** — a self-built, modular, and intelligent agent designed to track and optimize your team's **DORA metrics** using modern DevOps and AI principles. This project integrates performance data from your CI/CD systems and operational environments to surface engineering insights with real impact.
+
+📊 DORA Metrics Tracked:
+- **Deployment Frequency**
+- **Lead Time for Changes**
+- **Change Failure Rate**
+- **Time to Restore Service**
+
+This agent enables teams to shift from gut-based decisions to **data-driven DevOps operations**, empowering organizations to iterate faster, recover quicker, and improve system reliability.
+
+---
+
+## 🎯 Purpose
+
+As a senior cloud and DevOps consultant, I designed this agent to:
+- Replace **manual, spreadsheet-based tracking** of DORA metrics
+- Enable **real-time observability** of DevOps performance
+- Support **CI/CD pipeline integration**
+- Incorporate **AI-based predictions** and pattern detection
+- Align engineering efforts with **business velocity goals**
+
+> 🧠 This project was also an experiment in building a lightweight, self-hosted observability layer — something I needed in multiple startup and enterprise projects.
+
+---
+
+## 🧱 Architecture
+
+The agent is built around a **microservice model**, using modular layers for:
+
+```text
++----------------------------+
+|         Dashboards         |
++----------------------------+
+|   Enrichment & Prediction  |
++----------------------------+
+|     Metrics Collection     |
++----------------------------+
+|   CI/CD Logs + Git Data    |
++----------------------------+
+```
+
+- **Metrics Collector:** Connects to GitHub Actions, GitLab CI, Jenkins
+- **Enrichment Layer:** Adds context using AI (lead time, failure root causes)
+- **Dashboards:** Displays key KPIs, historical trends, and risk zones
+
+> All layers communicate via RESTful APIs. AI tasks run asynchronously.
+
+---
+
+## 🧠 Key Features
+
+✅ Tracks real-time **DORA metrics** with historical data
+✅ **Integrates** with GitHub, GitLab, Jenkins, and Azure DevOps
+✅ **AI Enrichment** for lead-time prediction and anomaly detection
+✅ **Streamlit dashboards** for engineering and management views
+✅ Lightweight: works with SQLite or Snowflake as backend
+✅ Runs as a self-contained FastAPI app (Docker-compatible)
+
+---
+
+## 🔍 Use Cases
+
+- **Engineering teams** who want real-time visibility into DevOps performance
+- **Tech leads** looking to reduce change failure rates
+- **Startups** who need observability but can’t afford big vendor tools
+- **DevOps consultants** who need portable analytics for client audits
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| API Backend | FastAPI, Python |
+| Frontend | Streamlit |
+| Storage | SQLite / Snowflake |
+| CI Integration | GitHub Actions, GitLab CI, Azure DevOps APIs |
+| AI | scikit-learn, SHAP (XAI), Prophet (forecasting) |
+
+---
+
+## 🧪 AI Capabilities
+
+| Task | Model/Tool |
+|------|------------|
+| Lead time prediction | Prophet, XGBoost |
+| Root cause detection | NLP pipelines on logs |
+| Failure rate risk zones | SHAP-based interpretability |
+
+Optional integrations include:
+- **LangChain** or **Haystack** for doc-based AI agents
+- **RAG** search on retrospectives and change logs
+
+---
+
+## 📦 Setup & Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/devops-agent-dora.git
+cd devops-agent-dora
+```
+
+### 2. Create Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate  # or .\venv\Scripts\activate on Windows
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure `.env`
+```env
+GITHUB_TOKEN=your_token_here
+DATABASE_URL=sqlite:///./metrics.db
+```
+
+### 5. Run the Agent
+```bash
+uvicorn app.main:app --reload
+```
+
+### 6. Launch Dashboard
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+## 📈 Dashboard Demo
+
+- Main view: Real-time deployment frequency & failure rate
+- Drilldown: Historical view by repo or environment
+- Prediction: Upcoming risk zones (AI-enabled)
+
+> 📸 Coming soon: GIF walkthrough of dashboard + real CI/CD pipeline examples
+
+---
+
+## 📘 Documentation
+
+- [docs/architecture.md](docs/architecture.md)
+- [docs/faq.md](docs/faq.md)
+- [docs/ai-insights.md](docs/ai-insights.md)
+
+---
+
+## 🧠 Future Roadmap
+
+- [ ] Integrate with Slack and Teams for alerts
+- [ ] Add vector-based RAG search on changelogs
+- [ ] Real-time metrics export to Prometheus
+- [ ] CI/CD heatmaps across squads
+- [ ] GitHub App version with dashboard hosting
+
+---
+
+## 💬 Author
+
+**Mahdad Kiyani**  
+Senior Cloud & AI Consultant  
+[🌐 mahdadkiyani.com](https://mahdadkiyani.com)  
+[📧 hallo@mahdadkiyani.com](mailto:hallo@mahdadkiyani.com)  
+[🔗 LinkedIn](https://www.linkedin.com/in/mahdad-kiyani-83745b25a)  
+
+---
+
+## 📚 Read the Full Article
+
+> 📝 I wrote a detailed breakdown of how this system was conceived, built, and tested — including architecture decisions, AI stack, and lessons learned:
+👉 [Read on LinkedIn](https://www.linkedin.com/pulse/ive-built-my-own-devops-agent-tracking-dora-operation-mahdad-kiyani-ur6se)
+
+---
+
+## 📜 License
+
+MIT License. You can fork, modify, and build on it — just credit the original.
+
+---
+
+## ⭐️ Contribute
+
+Feel free to submit PRs, file issues, or suggest improvements. Open source is how we scale intelligence.
+
+---
+
+> “What gets measured gets improved — especially when engineering meets intelligence.”
